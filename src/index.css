@@ -1,0 +1,289 @@
+:root {
+  /* 2026 Vibrant Educational Palette */
+  --bg-dark: #0a0e1a;
+  --bg-gradient: radial-gradient(circle at 50% 0%, #171d36 0%, #0a0e1a 75%, #050811 100%);
+  --card-bg: rgba(23, 29, 54, 0.7);
+  --card-bg-hover: rgba(33, 41, 75, 0.85);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --card-border-glow: rgba(0, 242, 254, 0.4);
+
+  /* Primary Brand & Analogies Colors */
+  --mango-yellow: #FFB703;
+  --amber-orange: #FB8500;
+  --signal-green: #10B981;
+  --signal-green-glow: rgba(16, 185, 129, 0.4);
+  --signal-red: #EF4444;
+  --signal-red-glow: rgba(239, 68, 68, 0.4);
+  --peacock-cyan: #00F2FE;
+  --jamun-violet: #7209B7;
+  --bubble-pink: #F72585;
+  --electric-blue: #4361EE;
+
+  /* Scratch Block Authentic Colors */
+  --scratch-event-yellow: #FFBF00;
+  --scratch-event-dark: #D49B00;
+  --scratch-looks-purple: #9966FF;
+  --scratch-motion-blue: #4C97FF;
+  --scratch-sound-pink: #CF63CF;
+
+  /* Typography */
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+  --font-code: 'Fira Code', monospace;
+
+  /* Shadows & Depth */
+  --shadow-clay: 0 16px 36px -10px rgba(0, 0, 0, 0.5), inset 0 2px 2px rgba(255, 255, 255, 0.15);
+  --shadow-neon: 0 0 25px rgba(0, 242, 254, 0.35);
+  --shadow-green: 0 0 30px rgba(16, 185, 129, 0.5);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-dark);
+  background-image: var(--bg-gradient);
+  background-attachment: fixed;
+  color: #F8FAFC;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.02em;
+  font-weight: 800;
+}
+
+button {
+  font-family: var(--font-heading);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Glassmorphism Card */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-clay);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Kinetic Pill Badge */
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Formula Box (Event -> Action) */
+.formula-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  background: rgba(10, 14, 26, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 1rem 1.5rem;
+  border-radius: var(--radius-md);
+  margin-top: 1rem;
+}
+
+.formula-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.formula-tag.event {
+  background: rgba(255, 183, 3, 0.18);
+  color: var(--mango-yellow);
+  border: 1px solid rgba(255, 183, 3, 0.4);
+}
+
+.formula-tag.action {
+  background: rgba(16, 185, 129, 0.18);
+  color: #34D399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+/* Scratch Hat Block (Events) */
+.scratch-hat-block {
+  background: var(--scratch-event-yellow);
+  color: #2D1A00;
+  padding: 12px 18px 14px 18px;
+  border-radius: 18px 18px 6px 6px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 4px solid var(--scratch-event-dark);
+  box-shadow: 0 6px 16px rgba(255, 191, 0, 0.25);
+  position: relative;
+  user-select: none;
+}
+
+.scratch-hat-block::after {
+  content: '';
+  position: absolute;
+  bottom: -9px;
+  left: 20px;
+  width: 18px;
+  height: 6px;
+  background: var(--scratch-event-yellow);
+  border-radius: 0 0 6px 6px;
+  border-bottom: 3px solid var(--scratch-event-dark);
+}
+
+/* Scratch Action Block */
+.scratch-action-block {
+  background: var(--scratch-looks-purple);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 4px solid #6E40C9;
+  box-shadow: 0 6px 16px rgba(153, 102, 255, 0.3);
+  position: relative;
+  user-select: none;
+}
+
+/* Keyframes */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(0, 242, 254, 0.7);
+  }
+}
+
+@keyframes greenTrafficBurst {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 45px rgba(16, 185, 129, 0.9);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
+  }
+}
+
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes dholBounce {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.08) rotate(-4deg) translateY(-8px);
+  }
+  75% {
+    transform: scale(1.08) rotate(4deg) translateY(-8px);
+  }
+}
+
+@keyframes waterFlowRipple {
+  0% {
+    height: 0%;
+    opacity: 0.8;
+  }
+  50% {
+    height: 100%;
+    opacity: 1;
+  }
+  100% {
+    height: 100%;
+    opacity: 0.9;
+  }
+}
+
+@keyframes bellSwing {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(18deg); }
+  40% { transform: rotate(-18deg); }
+  60% { transform: rotate(10deg); }
+  80% { transform: rotate(-10deg); }
+}
+
+@keyframes warmAirFlow {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px) scale(0.7);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateY(15px) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(35px) scale(1.3);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0e1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a3456;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--peacock-cyan);
+}
